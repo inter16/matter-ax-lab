@@ -1,0 +1,21 @@
+# Matter runtime state / Fabric credentials
+matter-ax-state/
+**/chip_kvs
+**/chip_tool_kvs
+**/chip_factory.ini
+**/chip_config.ini
+**/chip_counters.ini
+
+# Do not vendor connectedhomeip or its build environment
+connectedhomeip/
+out/
+.environment/
+
+# Python local artifacts
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Local editor / OS artifacts
+.DS_Store
