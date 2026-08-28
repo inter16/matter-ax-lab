@@ -39,7 +39,7 @@ Resolution:
 No action required for the initial Ethernet/IP Matter experiments.
 
 Git commit:
-PENDING — first baseline checkpoint
+52f6912fa1496690b3163a8571db824faea85ff9
 
 
 ==================================================
@@ -103,7 +103,7 @@ Resolution:
 Use on-network IP commissioning for the current PC-only experiment.
 
 Git commit:
-PENDING — first baseline checkpoint
+52f6912fa1496690b3163a8571db824faea85ff9
 
 
 ==================================================
@@ -164,7 +164,7 @@ Resolution:
 None required.
 
 Git commit:
-PENDING — first baseline checkpoint
+52f6912fa1496690b3163a8571db824faea85ff9
 
 
 ==================================================
@@ -218,7 +218,7 @@ Resolution:
 No action required at this point.
 
 Git commit:
-PENDING — first baseline checkpoint
+52f6912fa1496690b3163a8571db824faea85ff9
 
 
 ==================================================
