@@ -1,0 +1,28 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 5-4 — Endpoint 1 ServerList
+Date: 2026-08-29
+
+Command:
+  ./out/debug/chip-tool/chip-tool descriptor read server-list 1 1 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed report:
+  Endpoint: 1
+  Cluster: 0x001D (Descriptor)
+  Attribute: 0x0001 (ServerList)
+  ServerList: 10 entries
+    1106 (0x0452) ThreadBorderRouterManagement
+    1030 (0x0406) OccupancySensing
+      98 (0x0062) ScenesManagement
+      65 (0x0041) UserLabel
+      29 (0x001D) Descriptor
+       4 (0x0004) Groups
+       3 (0x0003) Identify
+       6 (0x0006) OnOff
+       8 (0x0008) LevelControl
+     768 (0x0300) ColorControl
+
+Interpretation:
+  Endpoint 1 actually implements OnOff and LevelControl Server Clusters, along with the other reported Server Clusters.
+  Cluster presence alone does not prove successful Command execution.
+
+Result: PASS

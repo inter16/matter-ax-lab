@@ -1,0 +1,21 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 5-2 — Endpoint 0 DeviceTypeList
+Date: 2026-08-29
+
+Command:
+  ./out/debug/chip-tool/chip-tool descriptor read device-type-list 1 0 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed report:
+  Endpoint: 0
+  Cluster: 0x001D (Descriptor)
+  Attribute: 0x0000 (DeviceTypeList)
+  DeviceTypeList: 2 entries
+    DeviceType: 17 (Power Source)
+    Revision: 1
+    DeviceType: 22 (Root Node)
+    Revision: 4
+
+Interpretation:
+  Endpoint 0 advertises the Root Node and Power Source node-scoped Device Types.
+
+Result: PASS

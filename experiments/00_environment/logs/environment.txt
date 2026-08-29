@@ -1,0 +1,31 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 0 — Ubuntu environment check
+Date: 2026-08-29
+
+NOTE
+This is a curated evidence extract reconstructed from terminal output supplied during the project session. It is not a byte-for-byte full raw terminal log.
+
+Observed environment:
+  Ubuntu 24.04.4 LTS (noble)
+  Architecture: x86_64
+  Kernel: 7.0.0-28-generic
+  Python observed in initial pyenv environment: 3.12.13
+  GCC: 13.3.0
+  G++: 13.3.0
+  Git: 2.43.0
+  bluetoothctl: 5.72
+
+Initial prerequisite observation:
+  cmake: not installed at the first environment check
+  ninja: not installed at the first environment check
+
+Interpretation:
+  The Ubuntu host and compiler architecture were identified before connectedhomeip setup.
+  Missing build prerequisites were identified rather than assuming the environment was ready.
+
+Result: PASS (environment identification)
+
+Not proven by this evidence:
+  Matter build success
+  Device execution
+  Commissioning

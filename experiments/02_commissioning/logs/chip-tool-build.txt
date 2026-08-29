@@ -1,0 +1,25 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 3 — CHIP Tool build
+Date: 2026-08-29
+
+NOTE
+This is a curated evidence extract reconstructed from terminal output supplied during the project session. It is not a byte-for-byte full raw terminal log.
+
+Build command:
+  cd ~/connectedhomeip
+  source scripts/activate.sh
+  ./scripts/examples/gn_build_example.sh examples/chip-tool out/debug/chip-tool
+
+Observed build completion:
+  [814/814] ld ./chip-tool
+
+Generated artifact:
+  out/debug/chip-tool/chip-tool
+  x86-64 ELF debug executable
+
+Revision relationship:
+  Device and CHIP Tool were built from the same connectedhomeip revision:
+  v1.6.0.0
+  250a9e6c50ee2068107f3c4808b680f5f2925415
+
+Result: PASS

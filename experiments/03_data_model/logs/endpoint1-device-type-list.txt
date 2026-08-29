@@ -1,0 +1,22 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 5-3 — Endpoint 1 DeviceTypeList
+Date: 2026-08-29
+
+Command:
+  ./out/debug/chip-tool/chip-tool descriptor read device-type-list 1 1 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed report:
+  Endpoint: 1
+  Cluster: 0x001D (Descriptor)
+  Attribute: 0x0000 (DeviceTypeList)
+  DeviceTypeList: 1 entries
+    DeviceType: 257 (Dimmable Light)
+    Revision: 3
+
+Hex Device Type ID:
+  257 = 0x0101
+
+Interpretation:
+  Endpoint 1 is an application Endpoint implementing the Dimmable Light Device Type.
+
+Result: PASS

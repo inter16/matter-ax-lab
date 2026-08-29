@@ -1,0 +1,22 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 5-5 — Endpoint 1 ClientList
+Date: 2026-08-29
+
+Command:
+  ./out/debug/chip-tool/chip-tool descriptor read client-list 1 1 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed report:
+  Endpoint: 1
+  Cluster: 0x001D (Descriptor)
+  Attribute: 0x0002 (ClientList)
+  ClientList: 4 entries
+       3 (0x0003) Identify
+       6 (0x0006) OnOff
+       8 (0x0008) LevelControl
+     768 (0x0300) ColorControl
+
+Interpretation:
+  Endpoint 1 declares client-side support for Identify, OnOff, LevelControl, and ColorControl.
+  Client Cluster presence does not prove that this application has actually sent Commands to another Matter Endpoint.
+
+Result: PASS

@@ -1,0 +1,32 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 2 — Linux Matter Device startup
+Date: 2026-08-29
+
+NOTE
+Curated extract from terminal output supplied during the project session. Local addresses, host-specific identifiers, QR/manual pairing data, and other unnecessary details were intentionally omitted.
+
+Run command:
+  ./out/debug/simulated/chip-app1 --KVS ~/matter-ax-state/device-app1/chip_kvs --passcode 20202021 --discriminator 3842
+
+Observed key output:
+  Device Configuration:
+    Vendor Id: 65521 (0xFFF1)
+    Product Id: 32769 (0x8001)
+    Setup Pin Code: 20202021
+    Setup Discriminator: 3842 (0xF02)
+
+  mDNS service published: _matterc._udp
+  CASE Server enabling CASE session setups
+  Server initialization complete
+  Server Listening...
+  APP STATUS: Starting event loop
+
+Bluetooth observation:
+  BlueZ activation timed out and CHIPoBLE was disabled.
+  Matter server operation and IP-based commissionable advertisement continued.
+
+Interpretation:
+  The Linux process was running as a commissionable Matter Device over IP.
+  Bluetooth commissioning was not proven.
+
+Result: PASS
