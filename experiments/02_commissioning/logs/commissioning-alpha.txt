@@ -1,0 +1,43 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 4 — First commissioning (alpha)
+Date: 2026-08-29
+
+NOTE
+Curated extract from terminal output supplied during the project session. Local network addresses and transient session identifiers were omitted.
+
+Command:
+  ./out/debug/chip-tool/chip-tool pairing onnetwork-long 1 20202021 3842 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed commissioning evidence:
+  PASE / SPAKE2+ exchange completed.
+  Device confirmed receipt of the trusted root certificate.
+  Device returned status 0 on receiving the NOC.
+  Operational credentials provisioned on device.
+  Secure Pairing Success
+  CASE establishment successful
+  Received CommissioningComplete response, errorCode=0
+  Successfully finished commissioning step 'SendComplete'
+  Commissioning complete for node ID 0x0000000000000001: success
+  Device commissioning completed with success
+
+Device-side evidence:
+  OpCreds: successfully created fabric index 0x1 via AddNOC
+  Operational Matter advertisement was published for Node ID 1.
+  Fabric metadata was persisted to the device KVS.
+
+Identity observed during the experiment:
+  Commissioner name: alpha
+  Device Node ID: 1
+  Fabric ID: 1
+  Device-side Fabric Index: 1
+  Commissioner Node ID: 112233 (0x1B669)
+
+Interpretation:
+  The Linux Matter Device joined alpha's Matter Fabric and became operationally reachable using CASE.
+
+Not yet proven at this point:
+  Multi-Admin
+  second Fabric
+  application Cluster command behavior
+
+Result: PASS
