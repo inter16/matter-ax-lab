@@ -1,0 +1,18 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 5-1 — Endpoint 0 PartsList
+Date: 2026-08-29
+
+Command:
+  ./out/debug/chip-tool/chip-tool descriptor read parts-list 1 0 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed report:
+  Endpoint: 0
+  Cluster: 0x001D (Descriptor)
+  Attribute: 0x0003 (PartsList)
+  PartsList: 1 entries
+    [1]: 1
+
+Interpretation:
+  Root Endpoint 0 reports Endpoint 1 as a contained endpoint.
+
+Result: PASS
