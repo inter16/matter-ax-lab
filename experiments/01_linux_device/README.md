@@ -47,7 +47,7 @@ Generated binary:
 - Matter server started successfully
 - Matter service operated over IP/Ethernet
 - commissionable-node advertisement was available
-- Bluetooth/BlueZ initialization failed, but this did not stop IP operation
+- BlueZ activation timed out and CHIPoBLE was disabled, while IP operation continued
 
 ## INTERPRETATION
 
@@ -58,6 +58,13 @@ Ubuntu에서 실행되는 Linux process가 Matter Device 역할을 수행했다.
 - physical Matter hardware
 - Bluetooth commissioning
 - application Cluster behavior
+
+## Evidence
+
+- [`logs/revision-and-build.txt`](logs/revision-and-build.txt)
+- [`logs/device-startup.txt`](logs/device-startup.txt)
+
+The evidence files are curated extracts from terminal output observed during the experiment; they are not represented as byte-for-byte raw terminal captures.
 
 ## Result
 
