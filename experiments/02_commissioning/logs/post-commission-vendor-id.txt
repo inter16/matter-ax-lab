@@ -1,0 +1,30 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 4 post-commission operational read
+Date: 2026-08-29
+
+NOTE
+Curated extract from terminal output supplied during the project session. Local network addresses and transient session identifiers were omitted.
+
+Command:
+  ./out/debug/chip-tool/chip-tool basicinformation read vendor-id 1 0 --commissioner-name alpha --storage-directory ~/matter-ax-state/chip-tool
+
+Observed operational evidence:
+  Stored Fabric index 0x1 was restored by CHIP Tool.
+  A fresh CASE session was established to Device Node ID 1.
+
+Read request:
+  Endpoint: 0
+  Cluster: 0x0028 (Basic Information)
+  Attribute: 0x0002 (VendorID)
+
+Observed report:
+  VendorID: 65521
+  Hex: 0xFFF1
+
+Interpretation:
+  A later CHIP Tool process could reuse alpha's persisted operational credentials, establish CASE, and read an Attribute from the commissioned Device.
+
+Important note:
+  CHIP Tool shutdown messages such as 'Forgetting fabric 0x1' refer to controller-process teardown and do not prove that the Device removed the Fabric.
+
+Result: PASS
