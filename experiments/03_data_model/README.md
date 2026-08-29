@@ -43,9 +43,9 @@ Command:
       --commissioner-name alpha \
       --storage-directory ~/matter-ax-state/chip-tool
 
-## OBSERVED
+### OBSERVED
 
-Descriptor Cluster:
+Descriptor Cluster returned:
 
     Endpoint: 0
     Cluster: 0x001D
@@ -53,32 +53,12 @@ Descriptor Cluster:
     PartsList: 1 entries
     [1]: 1
 
-## INTERPRETATION
+### INTERPRETATION
 
-Node ID `1` contains:
+Node ID `1` contains Endpoint `0` and Endpoint `1`. Endpoint 0 is the Root
+Endpoint and its PartsList identifies Endpoint 1.
 
-    Node 1
-    ├── Endpoint 0
-    └── Endpoint 1
-
-Endpoint 0 is the Root Endpoint and its PartsList identifies Endpoint 1.
-
-## NOT YET PROVEN
-
-- Endpoint 0 Device Type
-- Endpoint 1 Device Type
-- Endpoint 0 Server/Client Cluster list
-- Endpoint 1 Server/Client Cluster list
-- supported Commands
-- Events
-
-## Next
-
-Read `DeviceTypeList` from Endpoint 0.
-
-## Result
-
-IN PROGRESS
+Evidence: [`logs/endpoint0-parts-list.txt`](logs/endpoint0-parts-list.txt)
 
 ## Step 2 — Root Endpoint DeviceTypeList
 
@@ -108,16 +88,10 @@ Endpoint 0 Descriptor Cluster returned:
 
 ### INTERPRETATION
 
-Endpoint 0 is the Root Endpoint and advertises both the Root Node and
-Power Source node-scoped Device Types.
+Endpoint 0 advertises both the Root Node and Power Source node-scoped
+Device Types.
 
-### NOT YET PROVEN
-
-Endpoint 1 Device Type and its Cluster inventory remain unknown.
-
-## Next
-
-Read `DeviceTypeList` from Endpoint 1.
+Evidence: [`logs/endpoint0-device-type-list.txt`](logs/endpoint0-device-type-list.txt)
 
 ## Step 3 — Endpoint 1 DeviceTypeList
 
@@ -142,21 +116,14 @@ Endpoint 1 Descriptor Cluster returned:
     DeviceType: 257 (Dimmable Light)
     Revision: 3
 
-Device Type 257 is `0x0101`.
+Device Type `257` is `0x0101`.
 
 ### INTERPRETATION
 
-Endpoint 1 is an application Endpoint implementing the
-Dimmable Light Device Type.
+Endpoint 1 is an application Endpoint implementing the Dimmable Light
+Device Type.
 
-### NOT YET PROVEN
-
-The actual Server Clusters, Client Clusters, supported Commands,
-Attributes, and Events on Endpoint 1 remain to be discovered.
-
-## Next
-
-Read `ServerList` from Endpoint 1.
+Evidence: [`logs/endpoint1-device-type-list.txt`](logs/endpoint1-device-type-list.txt)
 
 ## Step 4 — Endpoint 1 ServerList
 
@@ -187,23 +154,11 @@ Endpoint 1 Descriptor Cluster returned 10 Server Clusters:
 ### INTERPRETATION
 
 Endpoint 1 actually implements OnOff and LevelControl Server Clusters,
-in addition to the other Server Clusters reported above.
+in addition to the other Server Clusters reported above. Server Cluster
+presence proves that the Cluster is implemented on this Endpoint, but
+does not yet prove successful Command execution.
 
-Server Cluster presence proves that the Cluster is implemented on this
-Endpoint, but does not yet prove successful Command execution.
-
-### NOT YET PROVEN
-
-- Client Cluster inventory
-- individual Attribute inventory
-- accepted/generated Commands
-- Event inventory
-- actual OnOff or LevelControl Command behavior
-- full Device Type conformance
-
-## Next
-
-Read `ClientList` from Endpoint 1.
+Evidence: [`logs/endpoint1-server-list.txt`](logs/endpoint1-server-list.txt)
 
 ## Step 5 — Endpoint 1 ClientList
 
@@ -228,18 +183,39 @@ Endpoint 1 Descriptor Cluster returned 4 Client Clusters:
 ### INTERPRETATION
 
 Endpoint 1 declares client-side support for Identify, OnOff,
-LevelControl, and ColorControl.
+LevelControl, and ColorControl. Client Cluster presence does not prove
+that the application has actually sent Commands to another Matter
+Endpoint.
 
-Client Cluster presence does not prove that the application has
-actually sent Commands to another Matter Endpoint.
+Evidence: [`logs/endpoint1-client-list.txt`](logs/endpoint1-client-list.txt)
 
-### NOT YET PROVEN
+## Current topology proven through Phase 5-5
+
+    Matter Device
+    └── Node ID 1
+        ├── Endpoint 0
+        │   ├── Device Type: Power Source, Revision 1
+        │   ├── Device Type: Root Node, Revision 4
+        │   └── PartsList: [1]
+        │
+        └── Endpoint 1
+            ├── Device Type: Dimmable Light (0x0101), Revision 3
+            ├── Server Clusters: 10 reported
+            └── Client Clusters: 4 reported
+
+## NOT YET PROVEN
 
 - Endpoint 0 Server/Client Cluster inventory
-- individual Attribute inventory
-- accepted/generated Commands
+- individual Attribute inventory beyond the previously verified Basic Information VendorID read
+- accepted/generated Command inventory
 - Event inventory
-- actual application Cluster behavior
+- actual OnOff or LevelControl Command behavior
+- writable Attribute behavior
+- full Dimmable Light Device Type conformance
+
+## Evidence note
+
+The linked evidence files are curated extracts from terminal output observed during the experiment; they are not represented as byte-for-byte raw terminal captures.
 
 ## Next
 
