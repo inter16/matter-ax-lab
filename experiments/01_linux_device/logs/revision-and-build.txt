@@ -1,0 +1,35 @@
+Matter Ubuntu Lab — Curated Evidence Backfill
+Experiment: Phase 1–2 — connectedhomeip baseline and Linux device build
+Date: 2026-08-29
+
+NOTE
+This is a curated evidence extract reconstructed from terminal output supplied during the project session. It is not a byte-for-byte full raw terminal log.
+
+connectedhomeip baseline:
+  Tag: v1.6.0.0
+  Commit: 250a9e6c50ee2068107f3c4808b680f5f2925415
+  Checkout state: detached HEAD at the exact release tag
+
+Observed revision commands/output:
+  git rev-parse HEAD
+  250a9e6c50ee2068107f3c4808b680f5f2925415
+
+  git describe --tags --exact-match
+  v1.6.0.0
+
+  git status --short --branch
+  ## HEAD (no branch)
+
+Linux virtual device build command:
+  ./scripts/examples/gn_build_example.sh examples/placeholder/linux out/debug/simulated/ chip_tests_zap_config=\"app1\"
+
+Observed build completion:
+  [843/843] ld ./chip-app1
+
+Generated artifact:
+  out/debug/simulated/chip-app1
+  x86-64 ELF debug executable
+
+Result:
+  Phase 1 baseline identification: PASS
+  Phase 2 Linux device build: PASS
