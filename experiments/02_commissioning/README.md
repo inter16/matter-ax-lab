@@ -55,9 +55,8 @@ established a new CASE session, and read:
 
 ## INTERPRETATION
 
-The Device joined the first Matter Fabric controlled by `alpha`, and the
-stored operational credentials remained usable after the commissioning
-process exited.
+The Device joined alpha's Matter Fabric, and the stored operational
+credentials remained usable after the commissioning process exited.
 
 ## NOT YET PROVEN
 
@@ -67,6 +66,14 @@ process exited.
 - second Fabric
 - Multi-Admin
 - state synchronization
+
+## Evidence
+
+- [`logs/chip-tool-build.txt`](logs/chip-tool-build.txt)
+- [`logs/commissioning-alpha.txt`](logs/commissioning-alpha.txt)
+- [`logs/post-commission-vendor-id.txt`](logs/post-commission-vendor-id.txt)
+
+The evidence files are curated extracts from terminal output observed during the experiment; they are not represented as byte-for-byte raw terminal captures.
 
 ## Result
 
